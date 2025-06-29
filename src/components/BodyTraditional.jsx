@@ -88,20 +88,28 @@ const BodyTraditional = () => {
 
   return (
     <>
-      <div className="body">
-        <div className="search">Search Bar</div>
-        <div className="search-bar">
+      <div className="body flex p-4">
+        <div className="search font-bold">Search Bar</div>
+        <div className="search-bar flex flex-row w-md items-center">
+          {/* <input type="text" name="search" id="" className="search-input" /> */}
           <input
             type="text"
-            name="search"
-            id=""
-            className="search-input"
+            id="first_name"
+            className="border-black rounded-md border-1 p-4 h-10 w-full"
+            placeholder="Search Menu Item"
             ref={searchTextRef}
+            required
           />
-          <button className="filter-button" onClick={handleSearchFunctionality}>
+          <button
+            className="filter-button w-25 cursor-pointer bg-green-600 p-2 rounded-md text-white"
+            onClick={handleSearchFunctionality}
+          >
             Search
           </button>
-          <button className="filter-button" onClick={handleClear}>
+          <button
+            className="w-20 h-10 cursor-pointer bg-gray-400 p-2 rounded-md text-white"
+            onClick={handleClear}
+          >
             Clear
           </button>
         </div>
@@ -110,7 +118,7 @@ const BodyTraditional = () => {
             Top Rated Restaurants
           </button>
         </div>
-        <div className="res-container">
+        <div className="res-container rounded-sm">
           {filteredRestaurantData &&
             filteredRestaurantData.map((data) => (
               <Link to={"/restuarants/" + data.id} key={data.id}>
