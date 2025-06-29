@@ -57,8 +57,6 @@
 
 .res-card:hover {
   cursor: pointer;
-  padding: 10px;
-  margin: 0 10px;
   transition: border-color 0.25s;
   border-radius: 12px;
 }
@@ -82,4 +80,23 @@
 
 .filter-button {
   margin: 10px;
+}
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: center;
+}
+
+.res-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+  width: 200px;
+  border-radius: 8px;
+  box-shadow: 5px 5px lightblue;
+  /* flex-grow: 1; */
 }

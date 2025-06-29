@@ -11,8 +11,12 @@ const RestaurantCard = (props) => {
 
   const { name, cuisine, rating, image, prepTimeMinutes } = props.resData ?? [];
 
+  const handleOpenMenu = () => {
+    
+  }
+
   return (
-    <div className="res-card" style={styleCard}>
+    <div className="res-card" style={styleCard} onClick={handleOpenMenu}>
       <div className="menu-item">
         <img className="res-logo" src={image} alt="res-logo" />
         <h3>{name}</h3>

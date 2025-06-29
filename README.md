@@ -95,3 +95,23 @@ resList.map(res => <RestaurantCard key={res.data} resData={res} />)
 - React never touches the DOM, it gets the React.createElement object from JSX
 
 - The entire JSX is converted to React.createElement
+
+
+#### useEffect( () => {}, [])
+  - The purpose is, if you want to **perform something after the render** is completed, then useEffect
+  - After the component rendered, then `useEffect()` will be called
+  - This has two arguments
+    - 1. Callback function
+    - 2. Dependency array
+
+
+# Code Splitting | Dynamic Bundling | Chunking | Lazy Loading
+  ### Code splitting, bundle size should be reduced.
+  ### Bundle should be logical splits
+
+  `Application Swiggy Bundles`
+
+    - Swiggy Instamart
+    - Grocery
+    - Swiggy Genie
+    - Liquor

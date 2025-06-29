@@ -1,0 +1,1 @@
+export const URI_RECIPES = "https://dummyjson.com/recipes";
