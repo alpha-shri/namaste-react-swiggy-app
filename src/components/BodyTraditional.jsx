@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withBestSellerLabel } from "./RestaurantCard.jsx";
 // import { apiData } from "../utils/mockData";
 import { fetchRestaurantData_API } from "../services/ApiService";
 import Shimmer from "./Shimmer";
@@ -13,6 +13,11 @@ const BodyTraditional = () => {
   const [error, setError] = useState(null);
 
   const [filteredRestaurantData, setFilteredRestaurantData] = useState([]);
+
+  // Higher order component
+  // Passing the RestaurantCard component as --INPUT--
+
+  const RestaurantCardBestSeller = withBestSellerLabel(RestaurantCard);
 
   const searchTextRef = useRef();
 
@@ -122,7 +127,11 @@ const BodyTraditional = () => {
           {filteredRestaurantData &&
             filteredRestaurantData.map((data) => (
               <Link to={"/restuarants/" + data.id} key={data.id}>
-                <RestaurantCard resData={data} />
+                {data.rating >= 4.9 ? (
+                  <RestaurantCardBestSeller resData={data} />
+                ) : (
+                  <RestaurantCard resData={data} />
+                )}
               </Link>
             ))}
         </div>

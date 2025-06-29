@@ -11,12 +11,8 @@ const RestaurantCard = (props) => {
 
   const { name, cuisine, rating, image, prepTimeMinutes } = props.resData ?? [];
 
-  const handleOpenMenu = () => {
-
-  }
-
   return (
-    <div className="res-card" style={styleCard} onClick={handleOpenMenu}>
+    <div className="res-card" style={styleCard}>
       <div className="menu-item">
         <img className="res-logo" src={image} alt="res-logo" />
         <h3 className="font-bold">{name}</h3>
@@ -26,6 +22,25 @@ const RestaurantCard = (props) => {
       </div>
     </div>
   );
+};
+
+// RestaurantCard (Input) ==>> RestaurantCardBestSeller
+
+export const withBestSellerLabel = (RestaurantCard) => {
+  return (props) => {
+    // to return component
+    return (
+      <div>
+        <label
+          htmlFor=""
+          className="absolute bg-black text-white m-2 p-2 rounded-lg"
+        >
+          BestSeller
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;
