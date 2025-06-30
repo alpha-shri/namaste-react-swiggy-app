@@ -11,6 +11,9 @@ const RestaurantCard = (props) => {
 
   const { name, cuisine, rating, image, prepTimeMinutes } = props.resData ?? [];
 
+  const handleOpenMenu = () => {
+  }
+
   return (
     <div className="res-card shadow-lg" style={styleCard}>
       <div className="menu-item">

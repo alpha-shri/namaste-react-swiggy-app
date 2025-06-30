@@ -113,6 +113,7 @@ const BodyTraditional = () => {
             mx-auto h-auto transition-shadow duration-300
             hover:bg-green-500
             shadow-lg hover:shadow-gray-400"
+
             onClick={handleSearchFunctionality}
           >
             Search
@@ -120,6 +121,7 @@ const BodyTraditional = () => {
           <button
             className="w-30 h-10 cursor-pointer bg-gray-400 p-2 rounded-md text-white hover:bg-gray-300
             shadow-lg shadow-gray-400"
+
             onClick={handleClear}
           >
             Clear
@@ -139,6 +141,7 @@ const BodyTraditional = () => {
           />
         </div>
         <div className="res-container rounded-sm ">
+
           {filteredRestaurantData &&
             filteredRestaurantData.map((data) => (
               <Link to={"/restuarants/" + data.id} key={data.id}>
