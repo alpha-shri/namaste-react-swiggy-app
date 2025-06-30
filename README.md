@@ -26,10 +26,11 @@ If you are developing a production application, we recommend using TypeScript wi
 - Code splitting
 - Differential Bundling ==> Support older browsers, other browser, screens
 
-// package.lock.json ==> It stores the exact version the App is using
+> package.lock.json ==> It stores the exact version the App is using
 
-~ ==> Fetches the Major updates [~4.5]
-^ ==> Fetches the Minor updates [^2.8.3]
+> ~ ==> Fetches the Major updates [~4.5]
+
+> ^ ==> Fetches the Minor updates [^2.8.3]
 
 ### Babel ~ JavaScript Compiler
 
@@ -96,22 +97,43 @@ resList.map(res => <RestaurantCard key={res.data} resData={res} />)
 
 - The entire JSX is converted to React.createElement
 
-
 #### useEffect( () => {}, [])
-  - The purpose is, if you want to **perform something after the render** is completed, then useEffect
-  - After the component rendered, then `useEffect()` will be called
-  - This has two arguments
-    - 1. Callback function
-    - 2. Dependency array
 
+- The purpose is, if you want to **perform something after the render** is completed, then useEffect
+- After the component rendered, then `useEffect()` will be called
+- This has two arguments
+  - 1. Callback function
+  - 2. Dependency array
 
 # Code Splitting | Dynamic Bundling | Chunking | Lazy Loading
-  ### Code splitting, bundle size should be reduced.
-  ### Bundle should be logical splits
 
-  `Application Swiggy Bundles`
+### Code splitting, bundle size should be reduced.
+
+### Bundle should be logical splits
+
+`Application Swiggy Bundles`
 
     - Swiggy Instamart
     - Grocery
     - Swiggy Genie
     - Liquor
+
+## useContext and Context Provider
+
+- This holds the value which shared by multiple components
+- ex: loggedInUserInfo is required across the application, so we can create UserContext and can be shared.
+
+`<UserContext.Provider value={{ loggedInUser: userName }}> <RouterProvider router={appRouter} />`
+
+`</UserContext.Provider>`
+
+### Can also make this dynamic
+
+`<UserContext.Provider value={{ loggedInUser: userName, setUserName }}>`
+
+**Pretty Cool feature**
+
+_get the setUserName and make this dynamic, this will change the value across the App._
+
+- const { loggedInUser, setUserName } = useContext(UserContext);
+- My state variable [user-name] is tied to global state value

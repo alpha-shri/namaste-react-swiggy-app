@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import RestaurantCard, { withBestSellerLabel } from "./RestaurantCard.jsx";
 // import { apiData } from "../utils/mockData";
 import { fetchRestaurantData_API } from "../services/ApiService";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "./../hooks/useOnlineStatus.js";
+import UserContext from "../utils/UserContext.js";
 
 const BodyTraditional = () => {
   const [recipes, setRecipes] = useState([]);
@@ -22,6 +23,8 @@ const BodyTraditional = () => {
   const searchTextRef = useRef();
 
   const onlineStatus = useOnlineStatus();
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   useEffect(() => {
     fetchRestaurantData()
@@ -106,13 +109,17 @@ const BodyTraditional = () => {
             required
           />
           <button
-            className="filter-button w-25 cursor-pointer bg-green-600 p-2 rounded-md text-white"
+            className="filter-button w-35 cursor-pointer bg-green-600 p-2 rounded-md text-white
+            mx-auto h-auto transition-shadow duration-300
+            hover:bg-green-500
+            shadow-lg hover:shadow-gray-400"
             onClick={handleSearchFunctionality}
           >
             Search
           </button>
           <button
-            className="w-20 h-10 cursor-pointer bg-gray-400 p-2 rounded-md text-white"
+            className="w-30 h-10 cursor-pointer bg-gray-400 p-2 rounded-md text-white hover:bg-gray-300
+            shadow-lg shadow-gray-400"
             onClick={handleClear}
           >
             Clear
@@ -122,8 +129,16 @@ const BodyTraditional = () => {
           <button className="filter-button" onClick={handleTopRestaurant}>
             Top Rated Restaurants
           </button>
+          <input
+            type="text"
+            id="first_name"
+            className="border-black rounded-md border-1 p-4 h-10 w-sm"
+            onChange={(e) => setUserName(e.target.value)}
+            value={loggedInUser}
+            required
+          />
         </div>
-        <div className="res-container rounded-sm">
+        <div className="res-container rounded-sm ">
           {filteredRestaurantData &&
             filteredRestaurantData.map((data) => (
               <Link to={"/restuarants/" + data.id} key={data.id}>

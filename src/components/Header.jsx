@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import logoFood from "./../assets/img/logoFood.jpg";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../hooks/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const LazyAboutPage = React.lazy(() => "./AboutPage.tsx");
 const LazyContactPage = React.lazy(() => "./ContactPage.tsx");
@@ -10,6 +11,8 @@ const LazyHomePage = React.lazy(() => "./HomePage.tsx");
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const onlineStatus = useOnlineStatus();
+
+  const userInfo = useContext(UserContext);
 
   useEffect(() => {
     console.log("useEffect called..");
@@ -41,17 +44,26 @@ const Header = () => {
         <ul>
           <li>Online Status: {onlineStatus ? "🟢" : "🔴"}</li>
           <li>
-            <Link to={"/"}>Home</Link>
+            <Link className="hover:text-blue-500 font-bold" to={"/"}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to={"/about"}>About</Link>
+            <Link className="hover:text-blue-500 font-bold" to={"/about"}>
+              About
+            </Link>
           </li>
           <li>
-            <Link to={"/contact"}>Contact Us</Link>
+            <Link className="hover:text-blue-500 font-bold" to={"/contact"}>
+              Contact Us
+            </Link>
           </li>
           <li>
-            <Link to={"/instamart"}>Instamart</Link>
+            <Link className="hover:text-blue-500 font-bold" to={"/instamart"}>
+              Instamart
+            </Link>
           </li>
+          <li className="font-bold text-xl">{userInfo.loggedInUser}</li>
           <li>Cart</li>
           <button onClick={logout}>{isLoggedIn ? "Logout" : "Login"}</button>
         </ul>

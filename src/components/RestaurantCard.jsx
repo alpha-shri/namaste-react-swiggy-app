@@ -12,7 +12,7 @@ const RestaurantCard = (props) => {
   const { name, cuisine, rating, image, prepTimeMinutes } = props.resData ?? [];
 
   return (
-    <div className="res-card" style={styleCard}>
+    <div className="res-card shadow-lg" style={styleCard}>
       <div className="menu-item">
         <img className="res-logo" src={image} alt="res-logo" />
         <h3 className="font-bold">{name}</h3>
@@ -26,6 +26,7 @@ const RestaurantCard = (props) => {
 
 // RestaurantCard (Input) ==>> RestaurantCardBestSeller
 
+// eslint-disable-next-line no-unused-vars
 export const withBestSellerLabel = (RestaurantCard) => {
   return (props) => {
     // to return component

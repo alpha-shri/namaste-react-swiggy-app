@@ -27,32 +27,37 @@ const RestaurantMenu = () => {
   if (menuItem === null) return <Shimmer />;
 
   return (
-    <div className="menu">
+    <>
       <Link to={"/"}>
         <b>Go back Home </b>
       </Link>
-      <h1>{menuItem.name}</h1>
-      <h2>
-        <b>Cuisine: </b>
-        {menuItem.cuisine}
-      </h2>
-      <ul>
-        <li>
-          <b>Ingredients:</b> {menuItem.ingredients}
-        </li>
-        <li>
-          <b>Instructions: </b>
-          {menuItem?.instructions}
-        </li>
-        <li>
-          <b>Rating: </b>
-          {menuItem.rating}
-        </li>
-        <li>
-          <img className="res-logo" src={menuItem.image} />
-        </li>
-      </ul>
-    </div>
+      <div className="menu text-center">
+        <h1 className="text-2xl p-2 my-6">{menuItem.name}</h1>
+
+        <div className="accordian"></div>
+
+        <h2>
+          <b>Cuisine: </b>
+          {menuItem.cuisine}
+        </h2>
+        <ul>
+          <li>
+            <b>Ingredients:</b> {menuItem.ingredients}
+          </li>
+          <li>
+            <b>Instructions: </b>
+            {menuItem?.instructions}
+          </li>
+          <li>
+            <b>Rating: </b>
+            {menuItem.rating}
+          </li>
+          <li>
+            <img className="res-logo" src={menuItem.image} />
+          </li>
+        </ul>
+      </div>
+    </>
   );
 };
 
