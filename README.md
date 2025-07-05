@@ -137,3 +137,23 @@ _get the setUserName and make this dynamic, this will change the value across th
 
 - const { loggedInUser, setUserName } = useContext(UserContext);
 - My state variable [user-name] is tied to global state value
+
+# REDUX TOOLKIT (RTK)
+
+- Install @reduxjs/toolkit and react-redux
+- Build Our Store [Database]
+- Connect our application to the store
+- `<Provider store={appstore}> </Provider>`
+- Create slice [cart-slice] ==> Logical separation (Image a table inside a database, say cart-table, user-table)
+- dispatch (Action) ==> Controller layer, you can trigger actions using this
+- Selector
+
+
+
+## Testing in React
+- **Unit Testing**: Test your component in isolation (Just test my Header Component)
+- **Integration Testing**: Testing the integration of different components.
+- **E2E Testing**
+- [React-testing-library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Jest Delightful library](https://jestjs.io/)
+- 

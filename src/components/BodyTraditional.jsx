@@ -144,13 +144,20 @@ const BodyTraditional = () => {
 
           {filteredRestaurantData &&
             filteredRestaurantData.map((data) => (
-              <Link to={"/restuarants/" + data.id} key={data.id}>
+              <>
                 {data.rating >= 4.9 ? (
                   <RestaurantCardBestSeller resData={data} />
                 ) : (
                   <RestaurantCard resData={data} />
                 )}
-              </Link>
+              </>
+              // <Link to={"/restuarants/" + data.id} key={data.id}>
+              //   {data.rating >= 4.9 ? (
+              //     <RestaurantCardBestSeller resData={data} />
+              //   ) : (
+              //     <RestaurantCard resData={data} />
+              //   )}
+              // </Link>
             ))}
         </div>
       </div>
