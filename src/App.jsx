@@ -9,6 +9,9 @@ import ContactPage from "./components/ContactPage.jsx";
 import BodyTraditional from "./components/BodyTraditional.jsx";
 import RestaurantMenu from "./pages/RestaurantMenu.jsx";
 import UserContext from "./utils/UserContext.js";
+import { Provider } from "react-redux";
+import appStore from "./store/appStore.js";
+import Cart from "./pages/Cart.jsx";
 
 // const LazyBodyTraditional = React.lazy(() =>
 //   import("./components/BodyTraditional")
@@ -73,6 +76,10 @@ const appRouter = createBrowserRouter([
           </Suspense>
         ),
       },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
     ],
     errorElement: <ErrorPage />,
   },
@@ -100,9 +107,11 @@ function App() {
 
   return (
     <>
-      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-        <RouterProvider router={appRouter} />
-      </UserContext.Provider>
+      <Provider store={appStore}>
+        <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+          <RouterProvider router={appRouter} />
+        </UserContext.Provider>
+      </Provider>
     </>
   );
 }
